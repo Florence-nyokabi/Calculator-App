@@ -21,7 +21,34 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        castViews()
+    }
 
+    override fun onResume() {
+        super.onResume()
+        btnAdd.setOnClickListener {
+            addition()
+//            validateApp()
+//            clearErrors()
+        }
+        btnSubtract.setOnClickListener {
+            subtraction()
+//            validateApp()
+//            clearErrors()
+        }
+        btnMultiply.setOnClickListener {
+            multiplication()
+//            validateApp()
+//            clearErrors()
+        }
+        btnDivide.setOnClickListener {
+            division()
+//            validateApp()
+//            clearErrors()
+        }
+    }
+
+    fun castViews(){
         tilFirstInput = findViewById(R.id.tilFirstInput)
         etFirstInput = findViewById(R.id.etFirstInput)
         tilSecondInput = findViewById(R.id.tilSecondInput)
@@ -32,33 +59,44 @@ class MainActivity : AppCompatActivity() {
         btnDivide = findViewById(R.id.btnDivide)
         tvResult = findViewById(R.id.tvResult)
 
-        btnAdd.setOnClickListener {
-            val num1 = etFirstInput.text.toString().toInt()
-            val num2 = etSecondInput.text.toString().toInt()
-            val finalResult = num1 + num2
-            tvResult.text = "Result: $finalResult"
-        }
-
-        btnSubtract.setOnClickListener {
-            val num1 = etFirstInput.text.toString().toInt()
-            val num2 = etSecondInput.text.toString().toInt()
-            val finalResult = num1 - num2
-            tvResult.text = "Result: $finalResult"
-        }
-
-        btnMultiply.setOnClickListener {
-            val num1 = etFirstInput.text.toString().toInt()
-            val num2 = etSecondInput.text.toString().toInt()
-            val finalResult = num1 * num2
-            tvResult.text = "Result: $finalResult"
-        }
-
-        btnDivide.setOnClickListener {
-            val num1 = etFirstInput.text.toString().toInt()
-            val num2 = etSecondInput.text.toString().toInt()
-            val finalResult = num1 / num2
-            tvResult.text = "Result: $finalResult"
-        }
+    }
+    fun addition(){
+        val num1 = etFirstInput.text.toString().toInt()
+        val num2 = etSecondInput.text.toString().toInt()
+        val finalResult = num1 + num2
+        tvResult.text = "Result: $finalResult"
 
     }
+    fun subtraction(){
+        val num1 = etFirstInput.text.toString().toInt()
+        val num2 = etSecondInput.text.toString().toInt()
+        val finalResult = num1 - num2
+        tvResult.text = "Result: $finalResult"
+    }
+    fun multiplication(){
+        val num1 = etFirstInput.text.toString().toInt()
+        val num2 = etSecondInput.text.toString().toInt()
+        val finalResult = num1 * num2
+        tvResult.text = "Result: $finalResult"
+    }
+    fun division(){
+        val num1 = etFirstInput.text.toString().toInt()
+        val num2 = etSecondInput.text.toString().toInt()
+        val finalResult = num1 / num2
+        tvResult.text = "Result: $finalResult"
+    }
+//    fun validateApp(){
+//        val firstinput = etFirstInput.text.toString()
+//        val secondinput = etSecondInput.text.toString()
+//
+//        if (firstinput.isBlank() || secondinput.isBlank()){
+//            tvResult.text = "Result: "
+//            tvResult.error = "Please enter valid numbers."
+//        }
+//
+//    }
+//    fun clearErrors(){
+//        tilFirstInput.error = null
+//        tilSecondInput.error = null
+//    }
 }
